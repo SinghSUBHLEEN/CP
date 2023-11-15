@@ -26,7 +26,8 @@ int get(){
 
 void solve(){
     int n = get();
-    if (n <= 3)
+    if(n==1) cout<<"1"<<endl;
+    else if (n <= 3)
         cout << "NO SOLUTION" << endl;
     else{
         if (n % 2 == 0){
