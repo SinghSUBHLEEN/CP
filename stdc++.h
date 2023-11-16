@@ -66,6 +66,7 @@
 
 #if __cplusplus >= 201103L
 #include <array>
+#include <string_view>
 #include <atomic>
 #include <chrono>
 #include <condition_variable>

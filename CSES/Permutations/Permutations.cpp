@@ -24,18 +24,21 @@ int get(){
 }
 
 void solve(){
-    int k;
-    cin>>k;
-    int n = sqrt(k);
-    while(n*n<k) n++;
-    // cout<<n<<endl;
-    if(k<=n*n and k>=n*n-n+1ll){
-        // cout<<"he"
-        cout<<n<<" "<<(n*n-k+1ll)<<endl;
-    }
+    int n = get();
+    if(n==1) cout<<"1"<<endl;
+    else if (n <= 3)
+        cout << "NO SOLUTION" << endl;
     else{
-        cout<<(k-n*n+2ll*n-1ll)<<" "<<n<<endl;
+        if (n % 2 == 0){
+            for(int i=2; i<=n; i+=2) cout<<i<<" ";
+            for(int i=1; i<=n; i+=2) cout<<i<<" ";
+        }
+        else{
+            for(int i=1; i<=n; i+=2) cout<<i<<" ";
+            for(int i=2; i<=n; i+=2) cout<<i<<" ";
+        }
     }
+    return ;
 }
 
 int32_t main(){
@@ -46,7 +49,7 @@ int32_t main(){
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;

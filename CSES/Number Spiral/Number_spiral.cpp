@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <string_view>
 using namespace std;
 
 typedef long double ld;
@@ -25,21 +24,20 @@ int get(){
 }
 
 void solve(){
-    int n = get();
-    if(n==1) cout<<"1"<<endl;
-    else if (n <= 3)
-        cout << "NO SOLUTION" << endl;
-    else{
-        if (n % 2 == 0){
-            for(int i=2; i<=n; i+=2) cout<<i<<" ";
-            for(int i=1; i<=n; i+=2) cout<<i<<" ";
-        }
-        else{
-            for(int i=1; i<=n; i+=2) cout<<i<<" ";
-            for(int i=2; i<=n; i+=2) cout<<i<<" ";
-        }
+    int x, y;
+    cin>>x>>y;
+    if(x>=y){
+        if(x%2==0)
+            cout<<(x*x - y + 1)<<endl;
+        else
+            cout<<(x*x - 2*x + 1 + y)<<endl;
     }
-    return ;
+    else{
+        if(y%2==1)
+            cout<<(y*y - x + 1)<<endl;
+        else
+            cout<<(y*y - 2*y + 1 + x)<<endl;
+    }
 }
 
 int32_t main(){
@@ -50,7 +48,7 @@ int32_t main(){
 #endif
 
     int t = 1;
-    // cin>>t;
+    cin>>t;
     while (t--) solve();
 
     return 0;
