@@ -23,3 +23,13 @@ The given grid looks more or less like,
     Thus, the value of the point will always be between the values [n^2, n^2-(2n-2)].
 
     If the value of n is x, then the perfect square lay row wise if the row number (x) is even else it will lay column wise and we can do the math to find the required value using the coordinate system.
+
+    if x>=y,
+
+        then if x is even, then look from row and then formulate
+        else look from column and then formulate
+    
+    else
+
+        if x is odd, then look from column and then formulate
+        else look from row and then formulate
