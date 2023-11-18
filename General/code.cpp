@@ -1,4 +1,8 @@
 #include <bits/stdc++.h>
+#pragma GCC optimize ("Ofast")
+#pragma GCC target ("avx,avx2")
+
+
 using namespace std;
 
 typedef long double ld;
@@ -23,19 +27,52 @@ int get(){
     return n;
 }
 
+bool isValid(string &s, string &t, int i, int j){
+    while(i<s.size() and j<t.size()){
+        if(s[i]!=t[j] and s[i]!='#') return false;
+        i++, j++;
+    }
+    return true;
+}
+
 void solve(){
-    int k;
-    cin>>k;
-    int n = sqrt(k);
-    while(n*n<k) n++;
-    // cout<<n<<endl;
-    if(k<=n*n and k>=n*n-n+1ll){
-        // cout<<"he"
-        cout<<n<<" "<<(n*n-k+1ll)<<endl;
+    int n, m;
+    cin>>n>>m;
+    string s, t;
+    cin>>s;
+    cin>>t;
+
+    unordered_map<char, vector<int>> map;
+    for(int i=0; i<m; i++) map[t[i]].push_back(i);
+
+    for(int i=0; i<s.size()-t.size(); i++){
+        if(s.substr(i, t.size())==t){
+            for(int j=i; j<i+t.size(); j++) s[j] = '#';
+        }
     }
-    else{
-        cout<<(k-n*n+2ll*n-1ll)<<" "<<n<<endl;
+
+    for(int i=0; i<n; i++){
+        if(s[i]=='#') continue;
+        if(map.find(s[i]) == map.end()){
+            cout<<"No"<<endl;
+            return ;
+        }
+        bool flag = false;
+        for(auto &it:map[s[i]]){
+            if(isValid(s, t, i, it)){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            cout<<"No"<<endl;
+            return ;
+        }
     }
+
+    cout<<"Yes"<<endl;
+
+    return ;
 }
 
 int32_t main(){
@@ -46,7 +83,7 @@ int32_t main(){
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;
