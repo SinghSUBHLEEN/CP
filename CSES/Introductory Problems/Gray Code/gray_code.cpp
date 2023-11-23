@@ -27,19 +27,39 @@ int get(){
     return n;
 }
 
-void solve(){
+vector<string> helper(int n){
+    if(n<1) return {""};
+    if(n==1) return {"0", "1"};
+    auto l = helper(n-1);
+    int prev = 0;
+    vector<string> ans;
+    for(int i=0; i<l.size(); i++){
+        l[i].push_back('0'+prev);
+        ans.push_back(l[i]);
+        prev = 1-prev;
+        l[i][l[i].size()-1] = '0'+prev;
+        ans.push_back(l[i]);
+    }
+    return ans;
+}
 
+void solve(){
+    int n = get();
+    auto ans = helper(n);
+    for(auto &it:ans)
+        cout<<it<<endl;
+    return ;
 }
 
 int32_t main(){
-ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;

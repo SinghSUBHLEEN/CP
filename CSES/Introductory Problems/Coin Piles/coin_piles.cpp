@@ -20,6 +20,7 @@ typedef vector<ld> vd;
 #define SORT(v) sort(begin(v), end(v))
 #define pb push_back
 #define int long long
+const int mod = (int) 1e9+7;
 
 int get(){
     int n;
@@ -27,12 +28,17 @@ int get(){
     return n;
 }
 
-void solve(){
-
+void solve(){ 
+    int a = get(), b = get();
+    if((2*b-a)%3==0 and (2*b-a)/3>=0 and (2*a-b)%3==0 and (2*a-b)/3>=0)
+        cout<<"YES"<<endl;
+    else
+        cout<<"NO"<<endl;
+    return;
 }
 
 int32_t main(){
-ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);

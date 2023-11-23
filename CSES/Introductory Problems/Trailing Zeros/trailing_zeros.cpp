@@ -20,6 +20,7 @@ typedef vector<ld> vd;
 #define SORT(v) sort(begin(v), end(v))
 #define pb push_back
 #define int long long
+const int mod = (int) 1e9+7;
 
 int get(){
     int n;
@@ -27,19 +28,25 @@ int get(){
     return n;
 }
 
-void solve(){
+int helper(int n){
+    return n==0?0:n/5+helper(n/5);
+}
 
+void solve(){
+    int n = get();
+    cout<<helper(n)<<endl;
+    return ;
 }
 
 int32_t main(){
-ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;

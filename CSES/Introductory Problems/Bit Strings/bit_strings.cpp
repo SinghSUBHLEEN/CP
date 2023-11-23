@@ -35,6 +35,7 @@ void solve(){
         ans = (ans%mod*2)%mod;
     }
     cout<<ans<<endl;
+    return ;
 }
 
 int32_t main(){

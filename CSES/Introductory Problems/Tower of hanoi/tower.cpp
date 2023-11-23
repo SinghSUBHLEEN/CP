@@ -1,8 +1,4 @@
 #include <bits/stdc++.h>
-#pragma GCC optimize ("Ofast")
-#pragma GCC target ("avx,avx2")
-
-
 using namespace std;
 
 typedef long double ld;
@@ -27,8 +23,19 @@ int get(){
     return n;
 }
 
-void solve(){
+void helper(int n, int  from, int to, int via){
+    if(n==0) return;	
+    helper(n-1, from, via, to);
+	cout<<from<<" "<<to<<endl;
+	helper(n-1, via, to, from);
+	return;
+}
 
+void solve(){
+    int n = get();
+    cout<<(1<<n)-1<<endl;
+    helper(n, 1, 3, 2);
+    return ;
 }
 
 int32_t main(){
@@ -39,7 +46,7 @@ ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;
