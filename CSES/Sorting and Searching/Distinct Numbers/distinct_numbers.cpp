@@ -27,17 +27,20 @@ int get(){
     return n;
 }
 
-int helper(int i, int j, int k,  string &s){
-    if(i==6 and j==0) return k==s.size();
-    if(i<0 or j<0 or i>6 or j>6) return 0;
-    int ans = 0;
-    
-}
-
 void solve(){
-    string s;
-    cin>>s;
-
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0; i<n; i++) cin>>arr[i];
+    sort(begin(arr), end(arr));
+    int ans = 0;
+    for(int i=0; i<n;){
+        int ele = arr[i];
+        ans++;
+        while(i<n and arr[i]==ele) i++;
+    }
+    cout<<ans<<endl;
+    return ;
 }
 
 int32_t main(){
@@ -48,7 +51,7 @@ ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;

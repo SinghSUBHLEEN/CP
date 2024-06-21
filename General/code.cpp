@@ -1,46 +1,29 @@
-#include <bits/stdc++.h>
-#pragma GCC optimize ("Ofast")
-#pragma GCC target ("avx,avx2")
-
+#include<iostream>
+#include<string.h>
 
 using namespace std;
 
-typedef long double ld;
-typedef long long ll;
-typedef pair<int, int> pii;
-typedef pair<int, pii> p3;
-typedef pair<ll, ll> pl;
-typedef pair<int, pl> p3l;
-typedef pair<double, double> pdd;
-typedef vector<int> vi;
-typedef vector<ld> vd;
+int main(){
 
-#define FOR(a, b) for (int i = (a); i < (b); i++)
-#define REP(n) FOR(0, n)
-#define SORT(v) sort(begin(v), end(v))
-#define pb push_back
-#define int long long
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
 
-int get(){
-    int n;
-    cin >> n;
-    return n;
-}
+    string sentence;
+    int i, charCount = 0, wordCount = 1;
 
-void solve(){
+    cout<<"Please enter the sentence: ";
+    getline(cin, sentence);
 
-}
+    for(i=0; i<sentence.size(); i++){
+        if(sentence[i]!=' ') charCount++;
+        else wordCount++;
+    }
 
-int32_t main(){
-ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-
-    int t = 1;
-    cin>>t;
-    while (t--) solve();
+    cout<<endl<<"The number of characters is: "<<charCount;
+    cout<<endl<<"The number of words is: "<<wordCount;
+    cout<<endl<<"The average word length is: "<<((double)charCount/wordCount);
 
     return 0;
 }

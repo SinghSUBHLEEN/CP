@@ -27,16 +27,7 @@ int get(){
     return n;
 }
 
-int helper(int i, int j, int k,  string &s){
-    if(i==6 and j==0) return k==s.size();
-    if(i<0 or j<0 or i>6 or j>6) return 0;
-    int ans = 0;
-    
-}
-
 void solve(){
-    string s;
-    cin>>s;
 
 }
 
@@ -48,7 +39,7 @@ ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #endif
 
     int t = 1;
-    cin>>t;
+    // cin>>t;
     while (t--) solve();
 
     return 0;
